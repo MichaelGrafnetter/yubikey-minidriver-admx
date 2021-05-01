@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2019 Michael Grafnetter  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"  xsi:schemaLocation="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions ../../Schema/PolicyDefinitionFiles.xsd">
+  <displayName>YubiKey Minidriver</displayName>
+  <description>Paramètres de YubiKey Smart Card Minidriver</description>
+  <resources>
+    <stringTable>
+      <string id="YubiKeyMinidriver">YubiKey Minidriver</string>
+      <string id="YubiKeyMinidriver_help">politiques concernants exclusivement le comportement du Yubikey Minidriver</string>
+      <string id="YubiKeyMinidriver_DebugOn">Activer les journaux de debuggage</string>
+      <string id="YubiKeyMinidriver_DebugOn_Help">Pour faciliter le diagnostique de problèmes, il est recommandé d'inclure le fichier log contenant le problème observé.
+
+Si vous activez ce paramètre, les fichiers logs seront créés pour tout processus s'exécutant dans C:\Logs.
+      
+Si vous désactivez ou ne configurez pas ce paramètre, aucun fichier log ne sera créé.</string>
+      <string id="YubiKeyMinidriver_NewKeyTouchPolicy">Configurer la fonction tactile pour les nouvelles clés</string>
+      <string id="YubiKeyMinidriver_NewKeyTouchPolicy_Help">La clé peut être paramétrée pour obliger une touche physique pour confirmer les opérations cryptographique. C'est une fonctionnalité optionelle pour améliorer la sécurité, assurant que chaque opération d'authentification soit éffectué par une personne.  Le YubiKey minidriver définit la politique tactile lors de la première importation ou génération d'une clé. Une fois définie pour une clé sur la Yubikey, les paramètres ne peuvent plus changés.
+
+Si vous configurez les paramètres de la politique, une des règles suivante sera configurée sur les nouvelles clés générées ou importées par le minidriver.
+
+Jamais
+Paramètre par défaut qui ne demande jamais une touche de l'utilisateur.
+
+Toujours
+Cette règle est paramétrée pour demander une touche de l'utilisateur avant de confirmer tout opération cryptographique. Yubico ne recommande pas l'utilisation de ce paramètre. En effet, sur plusieurs services, comme l'authentification, peuvent necessitées plusieurs opérations cryptographiques dans un laps de temps.
+
+Enregistré
+cette règle demande la touche une seule fois, et permet alors toutes les opérations cryptographiques dans un petit laps de temps. Pour utiliser l'option de la touche physique avec Windows smart card Logon, cette option est obligatoire.
+
+Si vous desactivez ou ne configurez pas ce paramètre, les nouvelles clés importées et générées par minidriver ne demanderont jamais la touche utilisateur.</string>
+      <string id="NewKeyTouchPolicy_Never">Jamais</string>
+      <string id="NewKeyTouchPolicy_Always">Toujours</string>
+      <string id="NewKeyTouchPolicy_Cached">Enregistré</string>
+      <string id="YubiKeyMinidriver_EnableUnsafeKeygen">Activer l'attenuation ROCA</string>
+      <string id="YubiKeyMinidriver_EnableUnsafeKeygen_Help">Certains clés Yubikey 4 ont été victimes de la vulnérabilité de generation de clés RSA d'Infineon, CVE-2017-15361, nommé par les auteurs de "Return of Coppersmith's Attack (ROCA)". Cette vulnerabilité concerne la génération des clés courtes permettant ainsi le calcul de la clé privée par un attaquant possedant la clé publique. 
+
+Si vous activez ce paramètre, le Yubikey minidriver va bloquer la géneration des clés RSA sur les Yubikey 4 vulnerables et créera une erreur dans la fenêtre de logs pour tout tentative de génération de clé RSA ayant echoué.
+
+Si vous desactivez ou ne configurez pas ce paramètre, le Yubikey Minidriver va permettre la génération des clés RSA sur des Yubikey 4 vulnérables, mais va créer un avertissement sur la fenêtre de logs pour toute génération de clé RSA réussite. Le message de log va inclure le numéro de série de la Yubikey 4, indiquant que la clé doit être remplacée, et reférré à la recommandation de sécurité YSA-2017-01 pour plus d'information.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="YubiKeyMinidriver_NewKeyTouchPolicy">
+        <dropdownList refId="NewKeyTouchPolicy_Options" defaultItem="0" noSort="true">Politique de touche pour les nouvelles clés:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>
