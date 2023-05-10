@@ -32,4 +32,4 @@ Just copy the ADMX and ADML files into the [local or central ADMX store](https:/
 ## References
 
 The ADMX template is based on the following official document:
-- [Deploying the YubiKey Minidriver to Workstations and Servers](https://support.yubico.com/support/solutions/articles/15000006456-yubikey-smart-card-deployment-guide](https://support.yubico.com/hc/en-us/articles/360015654560-Deploying-the-YubiKey-Minidriver-to-Workstations-and-Servers#Installing-via-Group-Policy-Object)
+- [Deploying the YubiKey Minidriver to Workstations and Servers](https://support.yubico.com/hc/en-us/articles/360015654560-Deploying-the-YubiKey-Minidriver-to-Workstations-and-Servers#Installing-via-Group-Policy-Object)
