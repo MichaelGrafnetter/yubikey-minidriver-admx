@@ -37,6 +37,12 @@ If you enable this setting, the YubiKey Minidriver will block RSA key generation
 
 If you disable or do not configure this setting, the YubiKey Minidriver will allow RSA key generation on vulnerable YubiKey 4 hardware, but will create a warning in the Windows Log for all successful RSA key generation events. The log message will include the serial number of the YubiKey 4, indicate the YubiKey needs to be replaced, and refers to the YSA-2017-01 security advisory for additional information.
 </string>
+      <string id="YubiKeyMinidriver_BlockPUKOnMGMUpgrade">Block PUK on Management Key upgrade</string>
+      <string id="YubiKeyMinidriver_BlockPUKOnMGMUpgrade_Help">When a YubiKey is used with the YubiKey Minidriver for the first time, the YubiKey Minidriver checks to ensure default values are not being used for the management key and the PIN Unblock Code (PUK). If the default values are in use, the YubiKey Minidriver will upgrade the Management key to a protected value and block the PUK. A blocked PUK will prevent the PIN Unblock function from being active. To prevent the PUK from being blocked, the setting must be configured prior to setting up keys.
+
+If you enable or do not configure this setting, the PUK block feature will be enabled.
+
+If you disable this policy setting, the PUK block feature will be disabled.</string>
     </stringTable>
     <presentationTable>
       <presentation id="YubiKeyMinidriver_NewKeyTouchPolicy">
