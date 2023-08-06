@@ -23,7 +23,9 @@ These are the YubiKey Minidriver settings that can currently be configured, with
 * Enable debug logging
   - Enabled
   - **Disabled**
-
+* Block PUK on Management Key upgrade
+  - **Enabled**
+  - Disabled
 
 ## Installation
 
