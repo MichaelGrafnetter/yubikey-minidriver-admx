@@ -53,5 +53,15 @@
         <decimal value="1" />
       </disabledValue>
     </policy>
+    <policy name="YubiKeyMinidriver_BlockPUKOnMGMUpgrade" class="Machine" displayName="$(string.YubiKeyMinidriver_BlockPUKOnMGMUpgrade)" explainText="$(string.YubiKeyMinidriver_BlockPUKOnMGMUpgrade_Help)" key="Software\Yubico\ykmd" valueName="BlockPUKOnMGMUpgrade">
+      <parentCategory ref="YubiKeyMinidriver" />
+      <supportedOn ref="windows:SUPPORTED_WindowsVista" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
   </policies>
 </policyDefinitions>

@@ -38,6 +38,12 @@ Si vous activez ce paramètre, le Yubikey minidriver va bloquer la géneration d
 
 Si vous desactivez ou ne configurez pas ce paramètre, le Yubikey Minidriver va permettre la génération des clés RSA sur des Yubikey 4 vulnérables, mais va créer un avertissement sur la fenêtre de logs pour toute génération de clé RSA réussite. Le message de log va inclure le numéro de série de la Yubikey 4, indiquant que la clé doit être remplacée, et reférré à la recommandation de sécurité YSA-2017-01 pour plus d'information.
       </string>
+      <string id="YubiKeyMinidriver_BlockPUKOnMGMUpgrade">Block PUK on Management Key upgrade</string>
+      <string id="YubiKeyMinidriver_BlockPUKOnMGMUpgrade_Help">Lorsqu'une YubiKey est utilisée avec le YubiKey Minidriver pour la première fois, le YubiKey Minidriver vérifie que les valeurs par défaut ne sont pas utilisées pour la clé de gestion et le code PIN de déblocage (PUK). Si les valeurs par défaut sont utilisées, le YubiKey Minidriver mettra à niveau la clé de gestion vers une valeur protégée et bloquera le PUK. Un code PUK bloqué empêchera la fonction de déblocage du code PIN d'être active. Pour éviter que le code PUK ne soit bloqué, le paramètre doit être configuré avant la configuration des clés.
+
+Si vous activez ou ne configurez pas ce paramètre, la fonction de blocage PUK sera activée.
+
+Si vous désactivez ce paramètre de la politique, la fonctionnalité de blocage PUK sera désactivée.</string>
     </stringTable>
     <presentationTable>
       <presentation id="YubiKeyMinidriver_NewKeyTouchPolicy">
