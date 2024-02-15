@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2019 Michael Grafnetter  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"  xsi:schemaLocation="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions ../../Schema/PolicyDefinitionFiles.xsd">
+  <displayName>YubiKey Minidriver</displayName>
+  <description>Impostazioni di YubiKey Smart Card Minidriver</description>
+  <resources>
+    <stringTable>
+      <string id="YubiKeyMinidriver">YubiKey Minidriver</string>
+      <string id="YubiKeyMinidriver_DebugOn">Abilita la registrazione di debug</string>
+      <string id="YubiKeyMinidriver_DebugOn_Help">Per facilitare la diagnosi dei problemi, si consiglia di includere un file di registro contenente il problema osservato.
+
+Se si attiva questa impostazione di criterio, verranno creati file di registro per ogni processo in esecuzione in C:\Logs.
+
+Se si disattiva o non si configura questa impostazione, non verrà creato alcun file di registro.</string>
+      <string id="YubiKeyMinidriver_NewKeyTouchPolicy">Configurare il criterio di tocco per nuove chiavi</string>
+      <string id="YubiKeyMinidriver_NewKeyTouchPolicy_Help">La YubiKey può essere impostata in modo da richiedere un tocco fisico per confermare qualsiasi operazione crittografica. Si tratta di una funzione opzionale per aumentare la sicurezza, garantendo che qualsiasi operazione di autenticazione debba essere eseguita di persona. Il Minidriver YubiKey imposta i criteri di tocco quando una chiave viene importata o generata per la prima volta. Una volta impostati per una chiave su YubiKey, i criteri non possono essere modificati.
+
+Se si attiva questa impostazione di criterio, sulle nuove chiavi generate o importate tramite il minidriver verrà configurato uno dei seguenti criteri di tocco:
+
+Mai
+Criterio predefinito di non richiedere mai il tocco dell'utente
+
+Sempre
+Il criterio è impostato in modo da richiedere il tocco dell'utente per confermare ogni singola operazione crittografica. Yubico sconsiglia di utilizzare questa impostazione, poiché alcuni servizi di Windows, come il login, possono richiedere più operazioni di crittografia in un breve lasso di tempo.
+
+In cache
+Il criterio è impostato in modo da richiedere il tocco fisico una volta, per poi consentire le operazioni crittografiche in una piccola finestra temporale. Questa opzione è necessaria per utilizzare l'opzione tocco fisico con Windows Smart Card Logon. 
+
+Se si disattiva o non si configura questa impostazione di criterio, le nuove chiavi importate o generate tramite il minidriver non richiederanno mai il tocco dell'utente.</string>
+      <string id="NewKeyTouchPolicy_Never">Mai</string>
+      <string id="NewKeyTouchPolicy_Always">Sempre</string>
+      <string id="NewKeyTouchPolicy_Cached">In cache</string>
+      <string id="YubiKeyMinidriver_EnableUnsafeKeygen">Abilita la mitigazione ROCA</string>
+      <string id="YubiKeyMinidriver_EnableUnsafeKeygen_Help">Alcuni dispositivi YubiKey 4 facevano parte della vulnerabilità di generazione di chiavi RSA di Infineon, CVE-2017-15361, definita dai suoi scopritori "Return of Coppersmith's Attack" (ROCA). Questa vulnerabilità riguarda la generazione di chiavi deboli che possono consentire la derivazione della chiave privata da parte di un aggressore in possesso della chiave pubblica. 
+
+Se si attiva questa impostazione, il minidriver YubiKey bloccherà la generazione di chiavi RSA sull'hardware YubiKey 4 vulnerabile e creerà un errore nel registro di Windows per tutti gli eventi di generazione di chiavi RSA non riusciti.
+
+Se si disattiva o non si configura questa impostazione, il minidriver YubiKey consentirà la generazione di chiavi RSA sull'hardware YubiKey 4 vulnerabile, ma creerà un avviso nel registro di Windows per tutti gli eventi di generazione di chiavi RSA riusciti. Il messaggio di log includerà il numero di serie della YubiKey 4, indicherà che la YubiKey deve essere sostituita e rimanderà all'avviso di sicurezza YSA-2017-01 per ulteriori informazioni.
+</string>
+      <string id="YubiKeyMinidriver_BlockPUKOnMGMUpgrade">Blocco del PUK sull'aggiornamento della chiave di gestione</string>
+      <string id="YubiKeyMinidriver_BlockPUKOnMGMUpgrade_Help">Quando una YubiKey viene utilizzata per la prima volta con il minidriver YubiKey, quest'ultimo controlla che non vengano utilizzati valori predefiniti per la chiave di gestione e il codice di sblocco PIN (PUK). Se sono in uso i valori predefiniti, il minidriver YubiKey aggiorna la chiave di gestione a un valore protetto e blocca il PUK. Un PUK bloccato impedirà alla funzione di sblocco PIN di essere attiva. Per evitare il blocco del PUK, l'impostazione deve essere configurata prima della configurazione delle chiavi.
+
+Se si attiva o non si configura questa impostazione, la funzione di blocco del PUK sarà attivata.
+
+Se si disattiva questa impostazione di criterio, la funzione di blocco del PUK sarà disattivata.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="YubiKeyMinidriver_NewKeyTouchPolicy">
+        <dropdownList refId="NewKeyTouchPolicy_Options" defaultItem="0" noSort="true">Criteri di tocco:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>
