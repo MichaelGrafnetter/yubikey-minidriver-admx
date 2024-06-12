@@ -20,10 +20,10 @@ These are the YubiKey Minidriver settings that can currently be configured, with
 - Enable ROCA mitigation
 - Enable debug logging
   - Debug log verbosity
-    - **Level 0 - Modify operations**
-    - Level 1
-    - Level 2
-    - Level 3 - Very verbose
+    - **Level 0 - Card module methods only**
+    - Level 1 - Errors and warnings
+    - Level 2 - Informational
+    - Level 3 - Full APDU tracing
 - Block PUK on Management Key upgrade
 - Disable automatic BaseCSP cache management
 - Enable card management key

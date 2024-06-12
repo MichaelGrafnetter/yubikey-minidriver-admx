@@ -44,10 +44,10 @@ Si vous desactivez ou ne configurez pas ce paramètre, le Yubikey Minidriver va 
 Si vous activez ou ne configurez pas ce paramètre, la fonction de blocage PUK sera activée.
 
 Si vous désactivez ce paramètre de la politique, la fonctionnalité de blocage PUK sera désactivée.</string>
-      <string id="YubiKeyMinidriver_DebugVerbosity_L0">Level 0 - Modify operations</string>
-      <string id="YubiKeyMinidriver_DebugVerbosity_L1">Level 1</string>
-      <string id="YubiKeyMinidriver_DebugVerbosity_L2">Level 2</string>
-      <string id="YubiKeyMinidriver_DebugVerbosity_L3">Level 3 - Very verbose</string>
+      <string id="YubiKeyMinidriver_DebugVerbosity_L0">Level 0 - Card module methods only</string>
+      <string id="YubiKeyMinidriver_DebugVerbosity_L1">Level 1 - Errors and warnings</string>
+      <string id="YubiKeyMinidriver_DebugVerbosity_L2">Level 2 - Informational</string>
+      <string id="YubiKeyMinidriver_DebugVerbosity_L3">Level 3 - Full APDU tracing</string>
       <string id="YubiKeyMinidriver_PinCacheTimeout">Configure PIN cache timeout</string>
       <string id="YubiKeyMinidriver_PinCacheTimeout_Help">If either the User PIN or External PIN cache policies is set to Timed, this setting sets the number of seconds for which the BaseCSP should cache the PIN.
 
